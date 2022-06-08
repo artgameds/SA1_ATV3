@@ -1,0 +1,32 @@
+USE Comabem;
+
+INSERT INTO unidades (ds_unidade) Values ("Kilo");
+INSERT INTO unidades (ds_unidade) Values ("Unidade");
+INSERT INTO unidades (ds_unidade) Values ("Litro");
+INSERT INTO unidades (ds_unidade) Values ("Metro");
+INSERT INTO unidades (ds_unidade) Values ("Duzia");
+
+
+INSERT INTO produtos (ds_produto, Vl_produto, qt_prodtuto, cd_unidade) VALUES ("Carne",30.00,2,1);
+INSERT INTO produtos (ds_produto, Vl_produto, qt_prodtuto, cd_unidade) VALUES ("Oleo",10.00,1,6);
+INSERT INTO produtos (ds_produto, Vl_produto, qt_prodtuto, cd_unidade) VALUES ("Leite",5.00,1.5,3);
+INSERT INTO produtos (ds_produto, Vl_produto, qt_prodtuto, cd_unidade) VALUES ("Alface",3.00,1,26);
+INSERT INTO produtos (ds_produto, Vl_produto, qt_prodtuto, cd_unidade) VALUES ("Laranja",8.00,1,2);
+
+/*ALTERAÇÃO DE DADOS*/
+UPDATE Produtos SET ds_produto = "Laranja" WHERE cd_produto =6;
+UPDATE Produtos SET cd_unidade = 2 WHERE cd_produto = 1;
+UPDATE produtos SET vl_produto = 100.00 WHERE ds_produto = 1;
+
+/*CONSULTA DE DADOS*/
+SELECT * FROM unidades;
+SELECT * FROM Produtos;
+SELECT ds_produtos, vl_produtos, qt_produtos ORDER BY ds_produtos;
+
+SELECT d.ds_produtos AS 'produto', u.ds_unidade AS 'unidade'
+FROM produtos AS P
+JOIN unidades AS u ON p.cd_unidade = u.cd.unidades;
+
+/*EXCLUSÃO DE DADOS*/
+DELETE FROM Produtos WHERE cd_produtos = 1;
+DELETE FROM Produtos WHERE cd_produtos = 5;
